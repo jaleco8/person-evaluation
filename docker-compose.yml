@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  app:
+    image: person-evaluation:1.0.0
+    container_name: person-evaluation-app
+    ports:
+      - "8080:8080"
+    environment:
+      JAVA_OPTS: "-Xmx512m -Xms256m"
+      SPRING_PROFILES_ACTIVE: "prod"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped

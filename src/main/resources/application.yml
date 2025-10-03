@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: person-evaluation
+  profiles:
+    active: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+kogito:
+  service:
+    url: http://localhost:8080
+  dataindex:
+    http:
+      url: http://localhost:8180
+  jobs-service:
+    http:
+      url: http://localhost:8580
+
+logging:
+  level:
+    org.kie.kogito: DEBUG
+    com.empresa: DEBUG
+    root: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+quarkus:
+  swagger-ui:
+    always-include: true
+    path: /swagger-ui
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true

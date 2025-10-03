@@ -1,0 +1,111 @@
+### Health Check
+GET http://localhost:8080/actuator/health
+Accept: application/json
+
+### Create Adult Person (should be APPROVED)
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 25,
+  "email": "john@example.com"
+}
+
+### Create Minor Person (should be DENIED)
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "age": 15,
+  "email": "jane@example.com"
+}
+
+### Create Person at Boundary Age 18 (should be APPROVED)
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "Mike Wilson",
+  "age": 18,
+  "email": "mike@example.com"
+}
+
+### Create Person at Boundary Age 17 (should be DENIED)
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "Sarah Johnson",
+  "age": 17,
+  "email": "sarah@example.com"
+}
+
+### Get All Persons
+GET http://localhost:8080/persons
+Accept: application/json
+
+### Test DMN Direct Endpoint - Adult
+POST http://localhost:8080/persons/persons
+Content-Type: application/json
+
+{
+  "Person": {
+    "name": "Direct DMN Test Adult",
+    "age": 30
+  }
+}
+
+### Test DMN Direct Endpoint - Minor
+POST http://localhost:8080/persons/persons
+Content-Type: application/json
+
+{
+  "Person": {
+    "name": "Direct DMN Test Minor",
+    "age": 16
+  }
+}
+
+### Test with nested person object format
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "person": {
+    "name": "Nested Format Test",
+    "age": 22,
+    "email": "nested@example.com"
+  }
+}
+
+### Batch test - Create multiple persons
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "Batch Test 1",
+  "age": 30,
+  "email": "batch1@example.com"
+}
+
+###
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "Batch Test 2",
+  "age": 14,
+  "email": "batch2@example.com"
+}
+
+###
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "name": "Batch Test 3",
+  "age": 18,
+  "email": "batch3@example.com"
+}

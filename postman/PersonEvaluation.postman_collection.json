@@ -1,0 +1,57 @@
+{
+  "info": {
+    "name": "Person Evaluation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Person - Adult",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "http://localhost:8080/persons", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["persons"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"person\": {\"name\": \"John Doe\", \"age\": 25}\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Person - Child",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "http://localhost:8080/persons", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["persons"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"person\": {\"name\": \"Jane Smith\", \"age\": 15}\n}"
+        }
+      }
+    },
+    {
+      "name": "List Persons",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/persons", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["persons"] }
+      }
+    },
+    {
+      "name": "Evaluate DMN",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "http://localhost:8080/persons/persons", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["persons","persons"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Person\": {\"name\": \"Direct DMN Test\", \"age\": 30}\n}"
+        }
+      }
+    }
+  ]
+}

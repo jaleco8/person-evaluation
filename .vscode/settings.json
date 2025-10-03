@@ -1,0 +1,32 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.saveActions.organizeImports": true,
+    "java.format.settings.url": "",
+    "java.format.settings.profile": "",
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+    "java.import.gradle.java.home": "",
+    "java.debug.settings.onBuildFailureProceed": false,
+    "files.associations": {
+        "*.dmn": "xml",
+        "*.bpmn": "xml",
+        "*.bpmn2": "xml"
+    },
+    "files.exclude": {
+        "**/build": true,
+        "**/.gradle": true,
+        "**/bin": true
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "spring-boot.ls.problem.application-properties.unknown-property": "WARNING",
+    "xml.validation.enabled": true,
+    "xml.format.enabled": true,
+    "yaml.validate": true,
+    "yaml.format.enable": true,
+    "yaml.completion": true,
+    "redhat.telemetry.enabled": false
+}
